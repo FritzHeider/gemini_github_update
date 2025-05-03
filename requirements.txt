@@ -1,0 +1,4 @@
+google-generativeai
+PyGithub
+Flask
+gunicorn # Production WSGI server Render will use

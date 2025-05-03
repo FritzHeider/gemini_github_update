@@ -1,0 +1,14 @@
+services:
+  - type: web # Specifies this is a web service
+    name: gemini-github-updater # Choose a name for your service
+    env: python # Specifies the runtime environment
+    plan: free # Use Render's free tier (adjust if needed)
+    buildCommand: "pip install -r requirements.txt" # How to install dependencies
+    startCommand: "gunicorn main:app" # How to start the Flask app using gunicorn
+    envVars: # Define environment variables needed (Values set in Render dashboard)
+      - key: GOOGLE_API_KEY
+        sync: false # Do not sync value from yaml, set in dashboard
+      - key: GITHUB_TOKEN
+        sync: false # Do not sync value from yaml, set in dashboard
+      - key: PYTHON_VERSION # Optional: Specify Python version if needed
+        value: 3.11 # Example: Use Python 3.11
